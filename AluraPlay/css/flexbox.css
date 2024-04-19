@@ -1,0 +1,172 @@
+/* Cabecera */
+.cabecera__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Se coloca la cabecera fija y se indica que la cordenada top sera donde se fijara */
+    position: fixed;
+    top: 0;
+}
+
+.cabecera__buscar__item {
+    display: none;
+}
+
+/* Rodapie */
+.rodapie__container {
+    display: flex;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    /* Es un atajo para las propiedades f-direction y f-wrap*/
+    flex-flow: column wrap;
+}
+
+/* Sección superior*/
+.superior__seccion__container {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: scroll;
+    gap: 15px;
+}
+
+/* Barra Lateral*/
+.menu__container {
+    position: fixed;
+    bottom: 0%;
+    height: 75px;
+    width: 100%;
+}
+
+.menu__lista {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.menu__lista li {
+    align-self: center;
+}
+
+.menu__itens {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Ocultar los elementos li 2,3,4 de la lista padre menu__lista de*/
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4) {
+    display: none;
+}
+
+/* Seccion videos */
+.videos__item {
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;
+}
+
+.videos__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.descripcion-video {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.descripcion-video img {
+    margin-right: 1rem;
+    flex-shrink: 0;
+    /*  Evita que la imagen se reduzca */
+}
+
+.detalles__video {
+    flex-direction: column;
+    text-align: left;
+
+}
+
+.detalles__video h3 {
+    margin-bottom: 10px;
+}
+
+
+/* Diseño responsivo Tablets*/
+@media (min-width: 834px) {
+
+    /* Cabecera */
+    .cabecera__buscar__item {
+        display: block;
+    }
+
+    /* Rodapie */
+    .rodapie__container {
+        justify-content: space-between;
+    }
+
+    /* Barra Lateral*/
+    .menu__container {
+        position: fixed;
+        left: 0;
+        height: 100%;
+        width: 74px;
+        top: 80px;
+    }
+
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+}
+
+/* Diseño responsivo Desktop*/
+@media (min-width: 1440px) {
+    .menu__container {
+        width: 239px;
+        overflow: scroll;
+    }
+
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4) {
+        display: flex;
+    }
+
+    .menu__lista {
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+
+    /* Cambio que se aplica a la lista 3*/
+    .menu__lista:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .menu__itens {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .videojuegos {
+        order: 3;
+    }
+
+    .peliculas {
+        order: 2;
+    }
+
+    .premium {
+        order: 1;
+    }
+}
